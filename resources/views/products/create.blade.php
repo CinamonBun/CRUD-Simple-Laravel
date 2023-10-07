@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="tanggal">Tanggal Kadaluarsa</label>
-        <input type="date" name="unit" id="unit" class="form-control" required>
+        <input type="date" name="date_expired" id="date_expired" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>

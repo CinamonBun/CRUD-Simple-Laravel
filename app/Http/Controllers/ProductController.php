@@ -25,6 +25,8 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required',
             'unit' => 'required',
+            'condition' => 'required',
+            'date_expired' => 'required',
         ]);
 
         Product::create($request->all());
@@ -51,12 +53,14 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required',
             'unit' => 'required',
+            'condition' => 'required',
+            'date_expired' => 'required',
         ]);
 
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         $product->update($request->all());
 
-        return redirect()->route('index')->with('success', 'Produk berhasil dihapus');
+        return redirect()->route('products.index')->with('success', 'Produk berhasil diUbah');
     }
 
     public function destroy($id)
