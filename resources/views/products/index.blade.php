@@ -2,7 +2,8 @@
 
 @section('content')
 <h1>Daftar Produk</h1>
-<a href="{{ url('/product/create') }}" class="btn btn-outline-danger">Tambah Produk</a>
+
+<a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
 
 <table class="table">
     <thead>
@@ -26,9 +27,9 @@
             <td>{{ $product->condition}}</td>
             <td>{{ $product->date_expired}}</td>
             <td>
-                <a href="{{ url('/product/' . $product->id) }}" class="btn btn-info">Lihat</a>
-                <a href="{{ url('/product/' . $product->id . '/edit') }}" class="btn btn-warning">Edit</a>
-                <form action="{{ url('/product/' . $product->id) }}" method="POST" style="display: inline;">
+                <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">Lihat</a>
+                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
+                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Hapus</button>

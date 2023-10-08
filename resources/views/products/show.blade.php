@@ -11,12 +11,13 @@
     <p class="card-text">{{ $product->condition }}</p>
     <p class="card-text">{{ $product->date_expired }}</p>
 
-    <a href="{{ url('/product/' .  $product->id . '/edit') }}" class="btn btn-warning">Edit</a>
-    <form action="{{ url('/product/' . $product->id) }}" method="POST" style="display: inline;">
+    <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">Lihat</a>
+    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
+    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus-ny ?')">Hapus</button>
+        <button type="submit" class="btn btn-danger">Hapus</button>
     </form>
-    <a href="{{ url('/') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('products.index') }}" class="btn btn-secondary">Kembali</a>
 </div>
 @endsection
